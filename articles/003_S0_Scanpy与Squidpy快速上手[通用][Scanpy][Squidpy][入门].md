@@ -233,8 +233,8 @@ sc.pp.calculate_qc_metrics(adata_original, inplace=True)
 adata_original.var['mt'] = adata_original.var_names.str.startswith('mt-')
 sc.pp.calculate_qc_metrics(adata_original, qc_vars=['mt'], inplace=True)
 
-# 标记过滤状态
-adata_original.obs['passed_qc'] = adata_original.obs_names.isin(filtered_spots)
+# 标记过滤状态（转换为字符串类型）
+adata_original.obs['passed_qc'] = adata_original.obs_names.isin(filtered_spots).astype(str)
 
 # 可视化
 fig, axes = plt.subplots(1, 2, figsize=(12, 5))
@@ -245,7 +245,7 @@ sq.pl.spatial_scatter(adata_original, color='total_counts', ax=axes[0],
 
 # 右图：标记哪些 spot 被过滤
 sq.pl.spatial_scatter(adata_original, color='passed_qc', ax=axes[1],
-                      title='QC Result (red=passed)', size=1.5)
+                      title='QC Result', size=1.5)
 
 plt.tight_layout()
 plt.show()
