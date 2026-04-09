@@ -199,10 +199,8 @@ jupyter lab
 
 详见 `notebooks/README.md`
 
-## 联系方式
-
-- 项目负责人：[@ShengXinF3](https://github.com/ShengXinF3)
-- 问题反馈：提交 Issue 或 PR
+**扫码关注微信公众号【生信F3】获取文章完整内容，分享生物信息学最新知识。**
+![ShengXinF3_QRcode](https://raw.githubusercontent.com/ShengXinF3/ShengXinF3/master/ShengXinF3_QRcode.jpg)
 
 ## License
 
