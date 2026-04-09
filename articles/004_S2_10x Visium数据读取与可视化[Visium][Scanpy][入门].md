@@ -290,8 +290,8 @@ print(f"Fold change: {np.median(in_tissue) / np.median(out_tissue):.1f}x")
 
 Visium 数据包含两套坐标系统：
 
-1. **阵列坐标** (array_row, array_col)：spot 在芯片上的逻辑位置（整数）
-2. **像素坐标** (spatial)：spot 在组织图像上的物理位置（浮点数）
+1. **阵列坐标** (array_row, array_col)：spot 在 Visium 芯片阵列上的行列索引（整数，范围 0-77）
+2. **像素坐标** (spatial)：spot 在组织图像上的像素位置（浮点数，单位：像素）
 
 ```python
 # 查看坐标信息
@@ -338,9 +338,26 @@ plt.savefig('coordinate_systems.png', dpi=300, bbox_inches='tight')
 plt.show()
 ```
 
-**两套坐标的用途**：
-- **阵列坐标**：用于计算空间邻域 (Neighborhood)，因为相邻 spot 的阵列坐标差值固定
-- **像素坐标**：用于叠加到组织图像上，实现精确的空间可视化
+**两套坐标的关系与用途**：
+
+这两套坐标通过 `scalefactors_json.json` 中的缩放因子相互转换：
+```
+像素坐标 = 阵列坐标 × spot_diameter_fullres
+```
+
+**阵列坐标的用途**：
+- 计算空间邻域：Visium 芯片采用六边形排列，相邻 spot 的阵列坐标差值固定（行差 ±1，列差 ±2）
+- 构建空间图 (Spatial Graph)：Squidpy 的 `sq.gr.spatial_neighbors()` 使用阵列坐标判断邻接关系
+- 批次校正：多个样本的阵列坐标可直接对齐，无需考虑图像尺寸差异
+
+**像素坐标的用途**：
+- 空间可视化：`sc.pl.spatial()` 使用像素坐标将 spot 叠加到组织图像上
+- 图像配准 (Image Registration)：与 H&E 染色图像、免疫荧光图像对齐
+- 空间距离计算：计算 spot 之间的欧氏距离（单位：像素或微米）
+
+**关键区别**：
+- 阵列坐标是**逻辑坐标**，反映 spot 在芯片上的拓扑关系
+- 像素坐标是**物理坐标**，反映 spot 在图像上的实际位置
 
 ### 基因表达可视化
 
