@@ -186,10 +186,15 @@ done
 ### 运行 Notebook
 
 ```bash
-# 安装依赖
+# 1. 创建并激活虚拟环境（推荐）
+python -m venv venv-st
+source venv-st/bin/activate  # macOS/Linux
+# venv-st\Scripts\activate  # Windows
+
+# 2. 安装依赖
 pip install -r requirements.txt
 
-# 启动 Jupyter
+# 3. 启动 Jupyter
 cd notebooks
 jupyter notebook
 

@@ -17,7 +17,22 @@ notebooks/
 
 ## 🚀 快速开始
 
-### 1. 安装依赖
+### 1. 环境准备
+
+**推荐使用虚拟环境**（避免依赖冲突）：
+
+```bash
+# 创建虚拟环境
+python -m venv venv-st
+
+# 激活虚拟环境
+# macOS/Linux:
+source venv-st/bin/activate
+# Windows:
+venv-st\Scripts\activate
+```
+
+### 2. 安装依赖
 
 首次使用前，需要安装必要的 Python 包：
 
@@ -31,7 +46,7 @@ pip install scanpy squidpy matplotlib jupyter
 conda install -c conda-forge scanpy squidpy matplotlib jupyter
 ```
 
-### 2. 启动 Jupyter
+### 3. 启动 Jupyter
 
 ```bash
 cd notebooks

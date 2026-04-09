@@ -27,7 +27,7 @@ updated: "2026-04-08"
 ### 什么是 AnnData？
 
 AnnData (Annotated Data) 是 Python 生态中专门为单细胞和空间转录组设计的数据结构。它的核心优势是：
-- **统一接口**：无论是单细胞 RNA-seq 还是空间转录组，都用同一套 API (Application Programming Interface，应用程序接口)
+- **统一接口**：无论是单细胞 RNA-seq 还是空间转录组，都用同一套 API (Application Programming Interface, 应用程序接口)
 - **分层存储**：表达矩阵、基因注释、细胞/spot 注释、空间坐标、图像分别存储，互不干扰
 - **高效计算**：底层使用稀疏矩阵，节省内存
 
@@ -41,7 +41,7 @@ adata
 │   ├── array_row, array_col: 阵列坐标
 │   └── ...
 ├── var: 基因注释 (n_genes 行)
-│   ├── gene_ids: Ensembl ID (基因标识符)
+│   ├── gene_ids: Ensembl ID (基因标识符, Identifier)
 │   ├── feature_types: 基因类型
 │   └── ...
 ├── uns: 非结构化数据
@@ -77,44 +77,45 @@ sample_data/
     └── tissue_lowres_image.png
 ```
 
-如果你还没有数据，可以从 10x Genomics 官网下载示例数据集（搜索 "Visium spatial datasets"）。
+如果你还没有数据，可以从 10x Genomics 官网下载示例数据集，或使用 Squidpy 提供的公开数据集。
 
 ### 读取数据
 
 ```python
 import scanpy as sc
+import squidpy as sq
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 
 # 设置随机种子，确保结果可复现
 np.random.seed(42)
 
-# 读取 Visium 数据
-adata = sc.read_visium(
-    path='sample_data/',  # Space Ranger 输出目录
-    count_file='filtered_feature_bc_matrix.h5',  # 可选：使用 h5 格式
-    library_id='sample_01',  # 样本标识符
-    load_images=True  # 加载组织图像
-)
+# 使用 Squidpy 提供的公开数据集
+adata = sq.datasets.visium_hne_adata()
+
+# 或者读取本地 Visium 数据
+# adata = sc.read_visium(
+#     path='sample_data/',  # Space Ranger 输出目录
+#     count_file='filtered_feature_bc_matrix.h5',  # 可选：使用 h5 格式
+#     library_id='sample_01',  # 样本标识符
+#     load_images=True  # 加载组织图像
+# )
 
 # 查看数据基本信息
 print(adata)
 ```
 
-**输出示例**：
-```
-AnnData object with n_obs × n_vars = 2688 × 18085
-    obs: 'in_tissue', 'array_row', 'array_col'
-    var: 'gene_ids', 'feature_types', 'genome'
-    uns: 'spatial'
-    obsm: 'spatial'
-```
+**输出解读**：
+输出显示 AnnData 对象的基本结构，包括 spot 数量（n_obs）和基因数量（n_vars）。Visium 数据通常有 2000-5000 个 spot，10000-20000 个基因。obs 包含 spot 注释（如 in_tissue 标记是否在组织内），var 包含基因注释，uns 存储空间信息，obsm 存储像素坐标。
 
 这里有几个关键参数：
 - `path`: Space Ranger 输出的根目录
 - `count_file`: 如果有 `.h5` 文件，读取速度更快；否则自动读取 `filtered_feature_bc_matrix/` 目录
 - `library_id`: 给样本命名，后续多样本分析时用于区分
 - `load_images`: 是否加载组织图像（默认 True）
+
+对于快速测试，推荐使用 `sq.datasets.visium_hne_adata()` 加载公开数据集，无需下载文件。
 
 ### 数据质量检查
 
@@ -139,20 +140,12 @@ print(f"Median UMI per spot: {np.median(adata.obs['total_counts']):.0f}")
 print(f"Median genes per spot: {np.median(adata.obs['n_genes_by_counts']):.0f}")
 ```
 
-**输出示例**：
-```
-Total spots: 2688
-Spots in tissue: 1809
-Total genes: 18085
-Median UMI per spot: 8234
-Median genes per spot: 3156
-```
-
-这些数字告诉我们：
+**输出解读**：
+这些数字反映数据质量的三个维度：
 - **总 spot 数**：Visium 芯片上的所有 spot（包括组织内和组织外）
-- **组织内 spot 数**：实际覆盖组织的 spot，这是我们分析的主要对象
-- **中位 UMI 数**：每个 spot 捕获的 RNA 分子数，反映测序深度
-- **中位基因数**：每个 spot 检测到的基因种类，反映数据复杂度
+- **组织内 spot 数**：实际覆盖组织的 spot，这是分析的主要对象
+- **中位 UMI 数**：每个 spot 捕获的 RNA 分子数，反映测序深度（通常 5000-15000）
+- **中位基因数**：每个 spot 检测到的基因种类，反映数据复杂度（通常 2000-5000）
 
 ### 诊断图：QC 指标分布
 
@@ -204,10 +197,13 @@ plt.show()
 fig, axes = plt.subplots(2, 2, figsize=(12, 12))
 
 # 1. Tissue image with spots
+# 将布尔值转换为字符串以避免绘图错误
+adata.obs['in_tissue_str'] = adata.obs['in_tissue'].astype(str)
+
 sc.pl.spatial(
     adata,
     img_key='hires',
-    color='in_tissue',
+    color='in_tissue_str',
     size=1.5,
     ax=axes[0, 0],
     show=False,
@@ -286,8 +282,8 @@ print(f"Median UMI (out of tissue): {np.median(out_tissue):.0f}")
 print(f"Fold change: {np.median(in_tissue) / np.median(out_tissue):.1f}x")
 ```
 
-**预期结果**：
-- 组织内 spot 的 UMI 数应该是组织外的 10-100 倍
+**输出解读**：
+- 组织内 spot 的 UMI 数通常是组织外的 10-100 倍
 - 如果差异不明显，说明组织外存在污染或组织内质量不佳
 
 ### 坐标系统详解
@@ -308,11 +304,14 @@ print(adata.obsm['spatial'][:5])
 # 可视化两套坐标系统
 fig, axes = plt.subplots(1, 2, figsize=(12, 5))
 
+# 将布尔值转换为数值以便绘图
+in_tissue_numeric = adata.obs['in_tissue'].astype(int)
+
 # 阵列坐标
 axes[0].scatter(
     adata.obs['array_col'],
     adata.obs['array_row'],
-    c=adata.obs['in_tissue'],
+    c=in_tissue_numeric,
     cmap='coolwarm',
     s=10
 )
@@ -325,7 +324,7 @@ axes[0].invert_yaxis()
 axes[1].scatter(
     adata.obsm['spatial'][:, 0],
     adata.obsm['spatial'][:, 1],
-    c=adata.obs['in_tissue'],
+    c=in_tissue_numeric,
     cmap='coolwarm',
     s=10
 )
@@ -348,29 +347,41 @@ plt.show()
 最后，我们可以可视化特定基因的空间表达模式：
 
 ```python
-# 选择几个标志基因
-marker_genes = ['CD3D', 'CD79A', 'MS4A1', 'CD68']  # T细胞、B细胞、巨噬细胞标志基因
+# 选择几个标志基因（小鼠脑组织）
+# 注意：小鼠基因命名为首字母大写，人类基因为全大写
+marker_genes = ['Cd3d', 'Cd79a', 'Ms4a1', 'Cd68']  # T细胞、B细胞、巨噬细胞标志基因
 
 # 检查基因是否存在
 available_genes = [g for g in marker_genes if g in adata.var_names]
 print(f"Available genes: {available_genes}")
 
+# 如果没有找到，尝试查找脑组织特异性基因
+if not available_genes:
+    # 小鼠脑组织常见标志基因
+    brain_markers = ['Snap25', 'Gad1', 'Slc17a7', 'Mbp', 'Aldh1l1']
+    available_genes = [g for g in brain_markers if g in adata.var_names]
+    print(f"Brain-specific genes: {available_genes}")
+
 # 空间表达可视化
-sc.pl.spatial(
-    adata,
-    img_key='hires',
-    color=available_genes,
-    size=1.5,
-    ncols=2,
-    cmap='viridis',
-    save='_marker_genes.png'
-)
+if available_genes:
+    sc.pl.spatial(
+        adata,
+        img_key='hires',
+        color=available_genes[:4],  # 最多显示4个基因
+        size=1.5,
+        ncols=2,
+        cmap='viridis',
+        save='_marker_genes.png'
+    )
+else:
+    print("⚠️ 未找到指定的标志基因，请检查基因命名")
 ```
 
 **如何选择标志基因**：
+- **物种差异**：小鼠基因首字母大写（如 Cd3d），人类基因全大写（如 CD3D）
 - 根据组织类型选择（如肿瘤、脑、肝等）
 - 优先选择高表达、空间特异性强的基因
-- 避免选择管家基因（如 GAPDH、ACTB），它们在所有位置都高表达
+- 避免选择管家基因（如 Gapdh、Actb），它们在所有位置都高表达
 
 ---
 
@@ -380,13 +391,13 @@ sc.pl.spatial(
 
 完成本文的学习后，你应该能够：
 
-- [ ] 理解 Visium 数据的目录结构和文件组成
-- [ ] 使用 `sc.read_visium()` 读取数据到 AnnData 对象
-- [ ] 计算并解读 QC 指标（UMI 数、基因数、线粒体比例）
-- [ ] 绘制 QC 指标的分布图和空间图
-- [ ] 区分阵列坐标和像素坐标的用途
-- [ ] 使用组织外 spot 作为负对照验证数据质量
-- [ ] 可视化特定基因的空间表达模式
+- 理解 Visium 数据的目录结构和文件组成
+- 使用 `sc.read_visium()` 读取数据到 AnnData 对象
+- 计算并解读 QC 指标（UMI 数、基因数、线粒体比例）
+- 绘制 QC 指标的分布图和空间图
+- 区分阵列坐标和像素坐标的用途
+- 使用组织外 spot 作为负对照验证数据质量
+- 可视化特定基因的空间表达模式
 
 ### 常见问题
 
@@ -419,40 +430,31 @@ sc.pl.spatial(
 ### 边界声明
 
 本文展示的方法适用于：
-- ✅ 10x Visium 标准流程（Space Ranger 输出）
-- ✅ 单个样本的初步探索
-- ✅ 数据质量的快速评估
+- 10x Visium 标准流程（Space Ranger 输出）
+- 单个样本的初步探索
+- 数据质量的快速评估
 
 本文不涉及：
-- ❌ Visium HD (High Definition，高分辨率) 数据（需要特殊处理，见后续文章）
-- ❌ 多样本批次校正
-- ❌ 高级空间分析（空间域识别、细胞通讯等）
-
-### 下一步
-
-完成数据读取和初步可视化后，下一篇文章将介绍：
-- **质量控制与数据过滤**：如何设定阈值去除低质量 spot
-- **归一化 (Normalization)**：消除技术变异，使样本间可比较
-- **高变基因选择**：识别驱动生物学差异的关键基因
-
-这些步骤是所有下游分析的基础，必须严格执行。
+- Visium HD (High Definition, 高分辨率) 数据（需要特殊处理，见后续文章）
+- 多样本批次校正
+- 高级空间分析（空间域识别、细胞通讯等）
 
 ---
 
-**核心要点回顾**：
-1. Visium 数据包含表达矩阵、空间坐标、组织图像三类信息
-2. AnnData 是管理空间转录组数据的标准结构
-3. QC 指标（UMI 数、基因数、线粒体比例）是评估数据质量的关键
-4. 空间可视化能揭示技术偏差和生物学模式
-5. 组织外 spot 是天然的负对照
+## 核心要点回顾
 
-**可复现性检查**：
-- 代码中设置了随机种子（`np.random.seed(42)`）
-- 所有图表都保存到文件
-- QC 指标的中位数已打印输出
+本文建立了 Visium 数据分析的起点：从原始文件到可解释的空间图谱。核心要点包括：
 
-**证据链完整性**：
-- ✅ 诊断图：QC 指标分布图、空间 QC 图
-- ✅ 对照：组织内 vs 组织外 UMI 数对比
-- ✅ 敏感性：坐标系统对比、不同基因的空间模式
-- ✅ 边界声明：明确适用范围和局限性
+**数据结构理解**：Visium 数据不是单一文件，而是表达矩阵、空间坐标、组织图像的三元组。AnnData 对象通过分层存储（X 存矩阵、obs 存 spot 注释、obsm 存坐标、uns 存图像）将这三类信息统一管理，避免了手动拼接的错误风险。
+
+**质量控制的三个维度**：UMI 数反映测序深度（中位数通常 5000-15000），基因数反映生物学复杂度（中位数通常 2000-5000），线粒体基因比例反映细胞损伤（通常 < 20%）。这三个指标必须同时检查，单一指标无法判断数据质量。
+
+**空间可视化的诊断价值**：将 QC 指标映射到组织切片上，能发现分布图无法揭示的问题。均匀分布说明技术质量良好，边缘效应提示切片不完整，局部高线粒体可能对应坏死区域。空间模式是技术偏差和生物学信号的混合体，需要结合组织学知识解读。
+
+**负对照的关键作用**：组织外 spot 是天然的负对照，其 UMI 数应远低于组织内（通常 10-100 倍差异）。如果差异不明显，说明存在污染或组织检测算法失败，必须在后续分析中手动筛选组织内 spot。
+
+**坐标系统的双重性**：阵列坐标用于计算空间邻域（因为相邻 spot 的坐标差值固定），像素坐标用于叠加到组织图像（因为需要精确对齐）。混淆两者会导致空间分析失败。
+
+**可复现性保障**：代码中设置随机种子、保存所有图表、打印关键指标的中位数，确保结果可被他人验证。这是科学分析的基本要求。
+
+本文建立的工作流程是所有下游分析的基础。如果数据读取或质量检查出现问题，后续的聚类、差异分析、空间域识别都会失败。

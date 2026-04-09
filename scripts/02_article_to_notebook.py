@@ -29,34 +29,23 @@ class ArticleToNotebook:
         lines = self.content.split('\n')
 
         i = 0
-        # 标记是否已经找到"第二部分"或代码块
-        found_part2 = False
-        has_code_blocks = False
+        # 跳过 YAML frontmatter
+        if lines[0].strip() == '---':
+            i += 1
+            while i < len(lines) and lines[i].strip() != '---':
+                i += 1
+            i += 1
 
+        # 跳过文章标题（第一个 # 标题）
+        while i < len(lines):
+            if lines[i].strip().startswith('# '):
+                i += 1
+                break
+            i += 1
+
+        # 从这里开始提取所有内容（包括第一部分和第二部分）
         while i < len(lines):
             line = lines[i]
-
-            # 跳过 YAML frontmatter
-            if i == 0 and line.strip() == '---':
-                i += 1
-                while i < len(lines) and lines[i].strip() != '---':
-                    i += 1
-                i += 1
-                continue
-
-            # 检测"第二部分"标记，从这里开始提取
-            if not found_part2:
-                if '第二部分' in line or '## 第二部分' in line or '动手实践' in line or '动手验证' in line:
-                    found_part2 = True
-                # 如果遇到代码块，也开始提取（兼容没有"第二部分"的文章）
-                if line.strip().startswith('```python'):
-                    found_part2 = True
-                    has_code_blocks = True
-
-            # 只有找到"第二部分"或代码块后才开始提取
-            if not found_part2:
-                i += 1
-                continue
 
             # 代码块
             if line.strip().startswith('```'):
@@ -79,8 +68,7 @@ class ArticleToNotebook:
                 i += 1
 
             md_content = '\n'.join(md_lines).strip()
-            # 跳过重复的"环境准备"标题
-            if md_content and not (md_content.startswith('### 环境准备') or md_content == '### 环境准备'):
+            if md_content:
                 blocks.append(('markdown', md_content))
 
         return blocks
