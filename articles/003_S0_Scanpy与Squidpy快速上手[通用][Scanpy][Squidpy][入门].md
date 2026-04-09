@@ -243,7 +243,7 @@ sc.pp.normalize_total(adata, target_sum=1e4)
 sc.pp.log1p(adata)
 
 # 识别高变基因
-sc.pp.highly_variable_genes(adata, n_top_genes=2000)
+sc.pp.highly_variable_genes(adata, n_top_genes=2000, flavor='seurat_v3')
 
 # 保存原始数据
 adata.raw = adata
@@ -255,7 +255,7 @@ adata = adata[:, adata.var['highly_variable']]
 sc.pp.scale(adata, max_value=10)
 
 # PCA 降维
-sc.tpp.pca(adata, n_comps=50)
+sc.tl.pca(adata, n_comps=50)  # 修正：tpp → tl
 
 # 计算邻域图
 sc.pp.neighbors(adata, n_neighbors=10, n_pcs=40)
