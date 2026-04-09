@@ -1,12 +1,14 @@
 # Scanpy 与 Squidpy 快速上手
 
-## 元信息
-- 文章ID: 003
-- 系列: S0 - 空间转录组入门
-- 标签: 通用, Scanpy, Squidpy
-- 难度: ⭐ 入门
-- 预计阅读时间: 15 分钟
-- 配套代码: [GitHub](https://github.com/BioF3/ST-Training)
+---
+title: "Scanpy 与 Squidpy 快速上手"
+article_id: "003"
+series: "S0"
+tags: ["通用", "Scanpy", "Squidpy", "入门"]
+difficulty: "入门"
+created: "2026-04-08"
+updated: "2026-04-09"
+---
 
 ---
 
@@ -408,8 +410,8 @@ sq.pl.nhood_enrichment(adata, cluster_key='leiden', method='average', cmap='cool
 - 显著负值：两种类型倾向于分离
 
 **证据链 - 边界声明**：
-- ✅ 能说明：哪些细胞类型在空间上共定位
-- ❌ 不能说明：共定位的因果关系（需要配体-受体分析）
+- 能说明：哪些细胞类型在空间上共定位
+- 不能说明：共定位的因果关系（需要配体-受体分析）
 
 ---
 
@@ -489,15 +491,14 @@ sq.pl.nhood_enrichment(adata, cluster_key='leiden', method='average', cmap='cool
 ## 参考资源
 
 **官方文档**：
-- Scanpy: https://scanpy.readthedocs.io/
-- Squidpy: https://squidpy.readthedocs.io/
+- Scanpy 和 Squidpy 官方文档提供了完整的 API 参考和教程
 
 **关键文献**：
 - Wolf et al. (2018). SCANPY: large-scale single-cell gene expression data analysis. *Genome Biology*. - 引入 AnnData 结构和 Scanpy 工作流
 - Palla et al. (2022). Squidpy: a scalable framework for spatial omics analysis. *Nature Methods*. - Squidpy 原始论文，介绍空间分析方法
 
 **数据集**：
-- 10x Genomics Visium 公开数据: https://www.10xgenomics.com/resources/datasets
+- 10x Genomics Visium 公开数据集可通过官方网站获取
 - Squidpy 内置数据集: `sq.datasets.visium_*`
 
 ---
