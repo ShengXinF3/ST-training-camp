@@ -68,12 +68,7 @@ pip install scanpy squidpy
 python -c "import scanpy as sc; import squidpy as sq; print(f'Scanpy {sc.__version__}, Squidpy {sq.__version__}')"
 ```
 
-**预期输出**：
-```
-Scanpy 1.10.1, Squidpy 1.4.1
-```
-
-**常见坑 #1**：如果遇到 `ImportError: libgeos_c.so.1`，需要安装 geos：
+**输出解读**：显示已安装的 Scanpy 和 Squidpy 版本号。只要能成功输出版本号（通常 Scanpy 1.9+ 和 Squidpy 1.2+），说明安装成功。如果遇到 `ImportError: libgeos_c.so.1`，需要安装 geos：
 ```bash
 conda install -c conda-forge geos
 ```
@@ -100,22 +95,13 @@ print(adata)
 ```
 
 **输出解读**：
-```
-AnnData object with n_obs × n_vars = 3353 × 18078
-    obs: 'in_tissue', 'array_row', 'array_col'
-    var: 'gene_ids', 'feature_types', 'genome'
-    uns: 'spatial'
-    obsm: 'spatial'
-```
+- `n_obs × n_vars`：显示 (spot 数量 × 基因数量)，Visium 数据通常有 2000-5000 个 spot，10000-30000 个基因
+- `obs`：每个 spot 的注释信息，包括是否在组织内 (`in_tissue`)、阵列坐标 (`array_row`, `array_col`)
+- `var`：基因注释信息，包括基因 ID、特征类型、参考基因组
+- `obsm['spatial']`：空间坐标 (x, y)，用于绘制空间图
+- `uns['spatial']`：组织图像和缩放因子，用于叠加显示
 
-**关键字段说明**：
-- `n_obs = 3353`：3353 个 spot
-- `n_vars = 18078`：18078 个基因
-- `obs`：每个 spot 的注释（是否在组织内、阵列坐标）
-- `obsm['spatial']`：空间坐标 (x, y)
-- `uns['spatial']`：组织图像和缩放因子
-
-**证据链 - 诊断图 #1**：检查数据完整性
+**检查数据完整性**：
 
 ```python
 # 检查空间坐标
@@ -128,14 +114,12 @@ in_tissue_ratio = adata.obs['in_tissue'].sum() / len(adata)
 print(f"In-tissue spots: {in_tissue_ratio:.1%}")
 ```
 
-**预期输出**：
-```
-Spatial coordinates shape: (3353, 2)
-Coordinates range: x=[0, 5000], y=[0, 4000]
-In-tissue spots: 68.5%
-```
+**输出解读**：
+- `Spatial coordinates shape`：应该是 (spot 数量, 2)，表示每个 spot 有 x 和 y 坐标
+- `Coordinates range`：坐标范围取决于图像分辨率，通常在几千像素范围内
+- `In-tissue spots`：组织内 spot 的比例，通常在 50-80% 之间，过低可能提示组织覆盖不足
 
-**边界声明**：这个数据集已经过预处理，实际项目中需要从 Space Ranger 输出加载原始数据。
+**说明**：这个数据集已经过预处理，实际项目中需要从 Space Ranger 输出加载原始数据。
 
 ### 2.3 质控（QC）- 第一个证据链
 
@@ -165,14 +149,10 @@ print(f"  pct_counts_mt: min={adata.obs['pct_counts_mt'].min():.2f}%, "
       f"max={adata.obs['pct_counts_mt'].max():.2f}%")
 ```
 
-**预期输出**：
-```
-Total spots: 3353
-QC metrics distribution:
-  total_counts: min=35, median=5520, max=28691
-  n_genes_by_counts: min=34, median=2755, max=5668
-  pct_counts_mt: min=0.00%, median=2.89%, max=27.78%
-```
+**输出解读**：
+- `total_counts`：每个 spot 的总 UMI 数，反映测序深度。Visium 数据中位数通常在 3000-8000 之间，极低值（< 500）可能是组织外或技术失败，极高值（> 20000）可能是双联体
+- `n_genes_by_counts`：检测到的基因数，反映数据丰富度。通常与 total_counts 正相关，中位数在 2000-4000 之间
+- `pct_counts_mt`：线粒体基因比例，高值提示细胞损伤。正常范围通常 < 10%，超过 20% 提示细胞破裂或凋亡
 
 **步骤 2：可视化 QC 指标分布**
 
@@ -182,12 +162,12 @@ sc.pl.violin(adata, ['total_counts', 'n_genes_by_counts', 'pct_counts_mt'],
              jitter=0.4, multi_panel=True)
 ```
 
-**诊断图解读**：
+**图表解读**：
 - `total_counts`：每个 spot 的总 UMI 数，反映测序深度
   - 极低值（< 500）：可能是组织外或技术失败
   - 极高值（> 20000）：可能是双联体或技术伪影
 - `n_genes_by_counts`：检测到的基因数，反映数据丰富度
-  - 与 total_counts 正相关，但低基因数 + 高 UMI 提示异常
+  - 与 total_counts 正相关，但低基因数加高 UMI 提示异常
 - `pct_counts_mt`：线粒体基因比例，高值提示细胞损伤或低质量
   - 正常范围：< 10%
   - 高值（> 20%）：细胞破裂或凋亡
@@ -213,14 +193,9 @@ print(f"After filtering: {adata.n_obs} spots")
 print(f"Removed: {3353 - adata.n_obs} spots ({(3353 - adata.n_obs)/3353:.1%})")
 ```
 
-**预期输出**：
-```
-Before filtering: 3353 spots
-After filtering: 2688 spots
-Removed: 665 spots (19.8%)
-```
+**输出解读**：显示过滤前后的 spot 数量和移除比例。通常移除 10-30% 的 spot 是合理的，如果移除比例过高（> 50%），需要重新评估阈值设置。
 
-**证据链 - 对照**：检查过滤是否合理
+**检查过滤是否合理**：
 
 ```python
 # 在空间上可视化过滤结果
@@ -233,7 +208,7 @@ sc.pp.calculate_qc_metrics(adata_original, inplace=True)
 adata_original.var['mt'] = adata_original.var_names.str.startswith('mt-')
 sc.pp.calculate_qc_metrics(adata_original, qc_vars=['mt'], inplace=True)
 
-# 标记过滤状态（转换为字符串类型）
+# 标记过滤状态
 adata_original.obs['passed_qc'] = adata_original.obs_names.isin(filtered_spots).astype(str)
 
 # 可视化
@@ -245,17 +220,17 @@ sq.pl.spatial_scatter(adata_original, color='total_counts', ax=axes[0],
 
 # 右图：标记哪些 spot 被过滤
 sq.pl.spatial_scatter(adata_original, color='passed_qc', ax=axes[1],
-                      title='QC Result', size=1.5)
+                      title='QC Result (red=passed)', size=1.5)
 
 plt.tight_layout()
 plt.show()
 ```
 
 **关键观察**：
-- 被过滤的 spot（蓝色）主要分布在组织边缘或空白区域
+- 被过滤的 spot 主要分布在组织边缘或空白区域
 - 如果被过滤的 spot 在组织核心区域，需要重新评估阈值
 
-**边界声明**：
+**说明**：
 - 这些阈值是基于小鼠脑组织的经验值
 - 不同组织类型需要调整：脂肪组织 UMI 数通常更低，肿瘤组织线粒体比例可能更高
 - 过滤过严会丢失真实信号，过滤过松会引入噪声，需要在下游分析中验证
@@ -289,14 +264,14 @@ sc.pp.neighbors(adata, n_neighbors=10, n_pcs=40)
 sc.tl.umap(adata)
 ```
 
-**证据链 - 敏感性分析**：检查降维稳健性
+**检查降维稳健性**：
 
 ```python
 # 绘制 PCA 方差解释图
 sc.pl.pca_variance_ratio(adata, log=True, n_pcs=50)
 ```
 
-**解读**：前 40 个 PC 应该解释 >80% 的方差。如果曲线在前 20 个 PC 就趋于平缓，说明数据维度较低。
+**解读**：前 40 个 PC 应该解释大部分方差（通常 > 80%）。如果曲线在前 20 个 PC 就趋于平缓，说明数据维度较低。
 
 ### 2.5 聚类（无监督识别细胞类型）
 
@@ -307,11 +282,20 @@ sc.tl.leiden(adata, resolution=0.5)
 # 可视化：UMAP 空间
 sc.pl.umap(adata, color='leiden', legend_loc='on data')
 
+
+# 清除所有与 leiden 相关的颜色配置
+for key in list(adata.uns.keys()):
+    if 'leiden_colors' in key:
+        adata.uns.pop(key)
+
+# 重新设置分类
+adata.obs['leiden'] = adata.obs['leiden'].astype('category')
+
 # 可视化：物理空间
 sq.pl.spatial_scatter(adata, color='leiden', size=1.5)
 ```
 
-**证据链 - 敏感性分析**：测试不同 resolution 参数
+**测试不同 resolution 参数**：
 
 ```python
 # 测试多个 resolution
@@ -340,6 +324,8 @@ sq.gr.spatial_neighbors(adata, coord_type='generic', delaunay=True)
 print(f"Average neighbors per spot: {adata.obsp['spatial_connectivities'].sum(axis=1).mean():.1f}")
 ```
 
+**输出解读**：显示每个 spot 平均有多少个邻居。Visium 数据通常每个 spot 有 4-8 个邻居，取决于组织形状和边缘效应。
+
 **空间自相关分析**：识别空间可变基因 (Spatially Variable Genes, SVG)
 
 ```python
@@ -355,19 +341,10 @@ sq.gr.spatial_autocorr(
 print(adata.uns['moranI'].head(10))
 ```
 
-**输出示例**：
-```
-              I      pval_norm  var_norm
-gene                                    
-Mbp       0.856  1.23e-145      0.012
-Plp1      0.823  3.45e-132      0.011
-Mobp      0.791  2.11e-118      0.010
-```
-
-**解读**：
-- `I`：Moran's I 值，范围 [-1, 1]，>0 表示正相关（相邻 spot 表达相似）
-- `pval_norm`：显著性 p 值
-- 高 I 值 + 低 p 值 = 强空间模式
+**输出解读**：
+- `I`：Moran's I 值，范围 [-1, 1]，大于 0 表示正相关（相邻 spot 表达相似）
+- `pval_norm`：显著性 p 值，小于 0.05 表示空间模式显著
+- 高 I 值加低 p 值表示强空间模式，这些基因在组织中呈现明显的区域化表达
 
 **可视化 SVG**：
 
@@ -379,7 +356,7 @@ top_svg = adata.uns['moranI'].head(4).index
 sq.pl.spatial_scatter(adata, color=top_svg, ncols=2, size=1.5, cmap='viridis')
 ```
 
-**证据链 - 负对照**：检查随机基因
+**验证空间模式**：
 
 ```python
 # 随机选择低 Moran's I 的基因
@@ -409,7 +386,7 @@ sq.pl.nhood_enrichment(adata, cluster_key='leiden', method='average', cmap='cool
 - 显著正值：两种类型倾向于相邻（可能存在细胞通讯）
 - 显著负值：两种类型倾向于分离
 
-**证据链 - 边界声明**：
+**说明**：
 - 能说明：哪些细胞类型在空间上共定位
 - 不能说明：共定位的因果关系（需要配体-受体分析）
 
@@ -424,53 +401,6 @@ sq.pl.nhood_enrichment(adata, cluster_key='leiden', method='average', cmap='cool
 - [ ] **降维聚类**：能够调整 resolution 参数，在 UMAP 和空间上验证聚类
 - [ ] **空间分析**：能够识别 SVG，解读 Moran's I 结果
 - [ ] **证据链**：每个分析步骤都包含诊断图、对照或敏感性分析
-
-### 常见坑与解决方案
-
-**坑 #1：内存溢出**
-- **现象**：处理大数据集（>10,000 spots）时，PCA 或聚类步骤卡死
-- **原因**：Scanpy 默认使用密集矩阵，占用内存大
-- **解决**：
-  ```python
-  # 使用稀疏矩阵
-  adata.X = scipy.sparse.csr_matrix(adata.X)
-  
-  # 或者降采样
-  sc.pp.subsample(adata, fraction=0.5)
-  ```
-
-**坑 #2：空间图构建失败**
-- **现象**：`sq.gr.spatial_neighbors()` 报错 `KeyError: 'spatial'`
-- **原因**：数据缺少空间坐标
-- **解决**：
-  ```python
-  # 检查坐标是否存在
-  assert 'spatial' in adata.obsm, "Missing spatial coordinates"
-  
-  # 如果坐标在 obs 中，需要转移到 obsm
-  adata.obsm['spatial'] = adata.obs[['x', 'y']].values
-  ```
-
-**坑 #3：SVG 结果不显著**
-- **现象**：所有基因的 Moran's I 都很低
-- **原因**：空间图构建参数不合理（邻域太大或太小）
-- **解决**：
-  ```python
-  # 可视化空间图
-  sq.pl.spatial_scatter(adata, connectivity_key='spatial_connectivities', edges=True)
-  
-  # 调整邻域参数
-  sq.gr.spatial_neighbors(adata, n_neighs=6)  # 默认是 6
-  ```
-
-**坑 #4：图表标签乱码**
-- **现象**：保存的图片中文显示为方块
-- **解决**：
-  ```python
-  # 设置字体（macOS）
-  plt.rcParams['font.sans-serif'] = ['Arial Unicode MS']
-  plt.rcParams['axes.unicode_minus'] = False
-  ```
 
 ### 进阶方向（下一步学什么）
 
