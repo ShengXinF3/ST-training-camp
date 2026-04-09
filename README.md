@@ -102,7 +102,7 @@ python scripts/harness.py post-process 013
 3. 理解规范：`docs/03_规范/术语表.md`
 4. 查看进度：`python scripts/harness.py status`
 
-## 206 篇排期概览
+## 文章概览
 
 - S0 总纲 (002-003, 007-016)：框架与验收体系 - 10/12 篇已完成
 - S1 生物学底座 (017-031)：组织学、TME、空间逻辑
@@ -200,6 +200,7 @@ jupyter lab
 详见 `notebooks/README.md`
 
 **扫码关注微信公众号【生信F3】获取文章完整内容，分享生物信息学最新知识。**
+
 ![ShengXinF3_QRcode](https://raw.githubusercontent.com/ShengXinF3/ShengXinF3/master/ShengXinF3_QRcode.jpg)
 
 ## License
