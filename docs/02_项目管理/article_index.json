@@ -1,0 +1,2289 @@
+{
+  "002": {
+    "id": "002",
+    "title": "空间转录组数据分析流程概览",
+    "series": "S0",
+    "tags": [
+      "通用",
+      "Scanpy",
+      "Squidpy"
+    ],
+    "difficulty": "入门",
+    "key_points": "完整分析流程、工具链、最佳实践",
+    "status": "completed"
+  },
+  "003": {
+    "id": "003",
+    "title": "Scanpy 与 Squidpy 快速上手",
+    "series": "S0",
+    "tags": [
+      "通用",
+      "Scanpy",
+      "Squidpy"
+    ],
+    "difficulty": "入门",
+    "key_points": "工具安装、基础操作、常用函数",
+    "status": "completed"
+  },
+  "007": {
+    "id": "007",
+    "title": "为什么空间转录组是下一代主战场",
+    "series": "S0",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "入门",
+    "key_points": "scRNA vs ST 范式变化、应用图谱、独特增益",
+    "status": "completed"
+  },
+  "008": {
+    "id": "008",
+    "title": "77 平台×594 工具：空转技术地图",
+    "series": "S0",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "入门",
+    "key_points": "任务-工具-平台映射、工具分类表、选型决策",
+    "status": "completed"
+  },
+  "009": {
+    "id": "009",
+    "title": "空间数据三件套：你到底拿到了什么",
+    "series": "S0",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "入门",
+    "key_points": "表达矩阵/空间坐标/组织影像、文件结构、字段说明",
+    "status": "completed"
+  },
+  "010": {
+    "id": "010",
+    "title": "专家级复现标准：同一数据跑出同一图",
+    "series": "S0",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "环境锁定、参数记录、版本管理、随机种子",
+    "status": "completed"
+  },
+  "011": {
+    "id": "011",
+    "title": "训练营验收体系：技能树与作品集",
+    "series": "S0",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "入门",
+    "key_points": "技能树结构、里程碑设计、作品集模板",
+    "status": "completed"
+  },
+  "012": {
+    "id": "012",
+    "title": "Visium HD 数据开箱：bin 级别数据结构",
+    "series": "S0",
+    "tags": [
+      "VisiumHD"
+    ],
+    "difficulty": "进阶",
+    "key_points": "bin vs cell、数据结构、读取方法",
+    "status": "completed"
+  },
+  "013": {
+    "id": "013",
+    "title": "HD 细胞分割验证：质量检查与边界对齐",
+    "series": "S0",
+    "tags": [
+      "VisiumHD",
+      "Cellpose"
+    ],
+    "difficulty": "进阶",
+    "key_points": "分割质量指标、边界检查、常见错误",
+    "status": "completed"
+  },
+  "014": {
+    "id": "014",
+    "title": "空间数据版本管理：从原始数据到结果",
+    "series": "S0",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "目录规范、版本控制、元数据记录",
+    "status": "pending"
+  },
+  "015": {
+    "id": "015",
+    "title": "最小可复现实验（MRE）：让别人一键跑通",
+    "series": "S0",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "MRE 清单、环境配置、数据打包",
+    "status": "pending"
+  },
+  "016": {
+    "id": "016",
+    "title": "S0 里程碑：空转全景认知检验",
+    "series": "S0",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "入门",
+    "key_points": "阶段复盘、概念自测、下阶段预告",
+    "status": "pending"
+  },
+  "017": {
+    "id": "017",
+    "title": "组织学速成：H&E 染色判读入门",
+    "series": "S1",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "入门",
+    "key_points": "H&E 原理、结构识别、边界判断",
+    "status": "pending"
+  },
+  "018": {
+    "id": "018",
+    "title": "空间微环境：类型/状态/生态位/梯度",
+    "series": "S1",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "入门",
+    "key_points": "核心概念、区分标准、空间尺度",
+    "status": "pending"
+  },
+  "019": {
+    "id": "019",
+    "title": "肿瘤微环境空间逻辑：免疫排布与功能区",
+    "series": "S1",
+    "tags": [
+      "Tumor"
+    ],
+    "difficulty": "进阶",
+    "key_points": "TME 分区、免疫浸润、功能假设",
+    "status": "pending"
+  },
+  "020": {
+    "id": "020",
+    "title": "神经组织空间逻辑：层状结构与细胞分布",
+    "series": "S1",
+    "tags": [
+      "Brain"
+    ],
+    "difficulty": "进阶",
+    "key_points": "皮层分层、神经元/胶质、marker 解读",
+    "status": "pending"
+  },
+  "021": {
+    "id": "021",
+    "title": "发育与再生：空间-时间耦合",
+    "series": "S1",
+    "tags": [
+      "Development"
+    ],
+    "difficulty": "进阶",
+    "key_points": "轨迹假设、形态发生、伪时间风险",
+    "status": "pending"
+  },
+  "022": {
+    "id": "022",
+    "title": "炎症与纤维化：空间域与病理分级",
+    "series": "S1",
+    "tags": [
+      "Immune"
+    ],
+    "difficulty": "进阶",
+    "key_points": "病理分级、空间映射、量化指标",
+    "status": "pending"
+  },
+  "023": {
+    "id": "023",
+    "title": "空间 marker 的证据链：表达+位置+组织学",
+    "series": "S1",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "三重证据、一致性检验、负对照",
+    "status": "pending"
+  },
+  "024": {
+    "id": "024",
+    "title": "混合信号的生物学解释：一个 spot 里有什么",
+    "series": "S1",
+    "tags": [
+      "Visium"
+    ],
+    "difficulty": "进阶",
+    "key_points": "spot 混合、解读边界、不确定性",
+    "status": "pending"
+  },
+  "025": {
+    "id": "025",
+    "title": "细胞通讯的生物学边界：距离与机制",
+    "series": "S1",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "旁分泌/接触/远程、距离尺度、邻域定义",
+    "status": "pending"
+  },
+  "026": {
+    "id": "026",
+    "title": "空间功能解释：通路富集的可信度",
+    "series": "S1",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "富集证据链、空间一致性、负对照",
+    "status": "pending"
+  },
+  "027": {
+    "id": "027",
+    "title": "空间异质性指标：从\"看图\"到\"可量化\"",
+    "series": "S1",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "熵/自相关/边界强度、指标选择、解读",
+    "status": "pending"
+  },
+  "028": {
+    "id": "028",
+    "title": "空间实验设计统计直觉：重复与伪重复",
+    "series": "S1",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "统计单位、批次效应、功效估算",
+    "status": "pending"
+  },
+  "029": {
+    "id": "029",
+    "title": "空间转录组的生物学陷阱：10 个常见误区",
+    "series": "S1",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "误区清单、反例、正确做法",
+    "status": "pending"
+  },
+  "030": {
+    "id": "030",
+    "title": "从组织学到假设：如何提出可检验的空间问题",
+    "series": "S1",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "高级",
+    "key_points": "问题框架、假设设计、验证路径",
+    "status": "pending"
+  },
+  "031": {
+    "id": "031",
+    "title": "S1 里程碑：生物学思维自测",
+    "series": "S1",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "案例分析、证据链检验、概念自测",
+    "status": "pending"
+  },
+  "004": {
+    "id": "004",
+    "title": "10x Visium 数据读取与可视化",
+    "series": "S2",
+    "tags": [
+      "Visium",
+      "Scanpy"
+    ],
+    "difficulty": "入门",
+    "key_points": "数据加载、基础可视化、坐标系统",
+    "status": "completed"
+  },
+  "032": {
+    "id": "032",
+    "title": "平台大分类：成像型 vs 测序型 vs ROI 型",
+    "series": "S2",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "入门",
+    "key_points": "三大类原理、能力边界、选型决策图",
+    "status": "pending"
+  },
+  "033": {
+    "id": "033",
+    "title": "分辨率 vs 通量 vs 成本：技术权衡三角",
+    "series": "S2",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "入门",
+    "key_points": "权衡关系、应用场景、预算规划",
+    "status": "pending"
+  },
+  "034": {
+    "id": "034",
+    "title": "平台选型决策树：给定问题如何选",
+    "series": "S2",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "决策流程、案例分析、常见错配",
+    "status": "pending"
+  },
+  "035": {
+    "id": "035",
+    "title": "跨平台比较：如何读 benchmark 研究",
+    "series": "S2",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "benchmark 维度、对照设计、偏差识别",
+    "status": "pending"
+  },
+  "036": {
+    "id": "036",
+    "title": "平台数据特性：稀疏性/噪声/批次效应",
+    "series": "S2",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "数据特征、平台依赖性、预处理策略",
+    "status": "pending"
+  },
+  "037": {
+    "id": "037",
+    "title": "Visium 标准版详解：55μm spot 的能力与局限",
+    "series": "S2",
+    "tags": [
+      "Visium"
+    ],
+    "difficulty": "入门",
+    "key_points": "spot 尺度、捕获效率、适用场景",
+    "status": "pending"
+  },
+  "038": {
+    "id": "038",
+    "title": "Visium 原始输出全解：spaceranger 目录结构",
+    "series": "S2",
+    "tags": [
+      "Visium"
+    ],
+    "difficulty": "入门",
+    "key_points": "文件树、字段字典、关键文件",
+    "status": "pending"
+  },
+  "039": {
+    "id": "039",
+    "title": "Visium HD 与 bin 策略：什么时候接近单细胞",
+    "series": "S2",
+    "tags": [
+      "VisiumHD"
+    ],
+    "difficulty": "进阶",
+    "key_points": "bin-size 选择、分辨率权衡、计算成本",
+    "status": "pending"
+  },
+  "040": {
+    "id": "040",
+    "title": "HD 细胞分割策略：Cellpose/Baysor 应用",
+    "series": "S2",
+    "tags": [
+      "VisiumHD",
+      "Cellpose"
+    ],
+    "difficulty": "进阶",
+    "key_points": "分割方法对比、参数调优、质量评估",
+    "status": "pending"
+  },
+  "041": {
+    "id": "041",
+    "title": "HD bin-to-cell 转换：聚合策略与质量控制",
+    "series": "S2",
+    "tags": [
+      "VisiumHD"
+    ],
+    "difficulty": "高级",
+    "key_points": "转换流程、质量指标、验证方法",
+    "status": "pending"
+  },
+  "042": {
+    "id": "042",
+    "title": "Visium 坐标系与缩放：组织图对齐",
+    "series": "S2",
+    "tags": [
+      "Visium"
+    ],
+    "difficulty": "进阶",
+    "key_points": "坐标系统、缩放因子、叠图验证",
+    "status": "pending"
+  },
+  "043": {
+    "id": "043",
+    "title": "Visium 批次效应：识别与校正",
+    "series": "S2",
+    "tags": [
+      "Visium"
+    ],
+    "difficulty": "高级",
+    "key_points": "批次来源、检测方法、校正策略",
+    "status": "pending"
+  },
+  "044": {
+    "id": "044",
+    "title": "Visium 数据陷阱：10 个常见错误",
+    "series": "S2",
+    "tags": [
+      "Visium"
+    ],
+    "difficulty": "进阶",
+    "key_points": "错误清单、诊断方法、解决方案",
+    "status": "pending"
+  },
+  "045": {
+    "id": "045",
+    "title": "Xenium 数据结构与处理流程",
+    "series": "S2",
+    "tags": [
+      "Xenium"
+    ],
+    "difficulty": "进阶",
+    "key_points": "转录本点云、FOV 拼接、细胞分割",
+    "status": "pending"
+  },
+  "046": {
+    "id": "046",
+    "title": "Xenium 细胞分割验证：质量控制清单",
+    "series": "S2",
+    "tags": [
+      "Xenium",
+      "Cellpose"
+    ],
+    "difficulty": "进阶",
+    "key_points": "分割质量、边界检查、修正策略",
+    "status": "pending"
+  },
+  "047": {
+    "id": "047",
+    "title": "CosMx 平台特性与数据处理",
+    "series": "S2",
+    "tags": [
+      "CosMx"
+    ],
+    "difficulty": "进阶",
+    "key_points": "平台原理、数据结构、处理流程",
+    "status": "pending"
+  },
+  "048": {
+    "id": "048",
+    "title": "MERFISH 高检测效率：panel 设计与局限",
+    "series": "S2",
+    "tags": [
+      "MERFISH"
+    ],
+    "difficulty": "进阶",
+    "key_points": "检测原理、panel 限制、适用场景",
+    "status": "pending"
+  },
+  "049": {
+    "id": "049",
+    "title": "成像型数据通用概念：转录本/分割/FOV",
+    "series": "S2",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "入门",
+    "key_points": "核心概念、数据流程、质量控制",
+    "status": "pending"
+  },
+  "050": {
+    "id": "050",
+    "title": "成像型细胞分割工具谱系：何时用哪个",
+    "series": "S2",
+    "tags": [
+      "Cellpose"
+    ],
+    "difficulty": "进阶",
+    "key_points": "Cellpose/StarDist/Baysor、选择指南",
+    "status": "pending"
+  },
+  "051": {
+    "id": "051",
+    "title": "成像型数据质量评估：从图像到表达矩阵",
+    "series": "S2",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "质量指标、检查流程、问题诊断",
+    "status": "pending"
+  },
+  "052": {
+    "id": "052",
+    "title": "成像型 vs 测序型：数据特性对比",
+    "series": "S2",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "特性对比、分析差异、方法适配",
+    "status": "pending"
+  },
+  "053": {
+    "id": "053",
+    "title": "Stereo-seq 超高分辨率：计算挑战与优化",
+    "series": "S2",
+    "tags": [
+      "Stereo-seq"
+    ],
+    "difficulty": "高级",
+    "key_points": "数据规模、内存优化、并行策略",
+    "status": "pending"
+  },
+  "054": {
+    "id": "054",
+    "title": "Slide-seq/DBiT-seq：珠子与微流控路线",
+    "series": "S2",
+    "tags": [
+      "Slide-seq"
+    ],
+    "difficulty": "进阶",
+    "key_points": "技术路线、数据特点、处理流程",
+    "status": "pending"
+  },
+  "055": {
+    "id": "055",
+    "title": "GeoMx DSP：ROI 型优势与统计陷阱",
+    "series": "S2",
+    "tags": [
+      "GeoMx"
+    ],
+    "difficulty": "进阶",
+    "key_points": "ROI 设计、统计单位、队列研究",
+    "status": "pending"
+  },
+  "056": {
+    "id": "056",
+    "title": "seqFISH+：高多重化成像的数据处理",
+    "series": "S2",
+    "tags": [
+      "seqFISH"
+    ],
+    "difficulty": "进阶",
+    "key_points": "技术原理、数据结构、分析流程",
+    "status": "pending"
+  },
+  "057": {
+    "id": "057",
+    "title": "开源平台数据处理：通用流程与工具",
+    "series": "S2",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "数据标准化、工具选择、流程设计",
+    "status": "pending"
+  },
+  "058": {
+    "id": "058",
+    "title": "平台数据格式转换：AnnData/SpatialData/Seurat",
+    "series": "S2",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "格式转换、字段映射、兼容性",
+    "status": "pending"
+  },
+  "059": {
+    "id": "059",
+    "title": "FFPE vs Fresh Frozen：样本类型与平台兼容性",
+    "series": "S2",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "入门",
+    "key_points": "样本特性、平台适配、质量影响",
+    "status": "pending"
+  },
+  "060": {
+    "id": "060",
+    "title": "从实验到数据：哪些问题分析救不了",
+    "series": "S2",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "实验问题、不可救场景、预防措施",
+    "status": "pending"
+  },
+  "061": {
+    "id": "061",
+    "title": "S2 里程碑：平台选型与数据理解检验",
+    "series": "S2",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "选型案例、数据诊断、知识自测",
+    "status": "pending"
+  },
+  "062": {
+    "id": "062",
+    "title": "读取 Visium 到 AnnData：最稳健加载",
+    "series": "S3",
+    "tags": [
+      "Visium",
+      "Scanpy"
+    ],
+    "difficulty": "入门",
+    "key_points": "加载函数、检查清单、常见错误",
+    "status": "pending"
+  },
+  "063": {
+    "id": "063",
+    "title": "坐标系与缩放：组织图/spot/高分辨率图对齐",
+    "series": "S3",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "坐标系统、缩放因子、对齐验证",
+    "status": "pending"
+  },
+  "064": {
+    "id": "064",
+    "title": "成像型数据读取：转录本点到细胞表达矩阵",
+    "series": "S3",
+    "tags": [
+      "Xenium",
+      "CosMx"
+    ],
+    "difficulty": "进阶",
+    "key_points": "点云读取、聚合方法、质量控制",
+    "status": "pending"
+  },
+  "065": {
+    "id": "065",
+    "title": "空间数据稀疏性：内存优化与存储方案",
+    "series": "S3",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "稀疏矩阵、存储格式、内存估算",
+    "status": "pending"
+  },
+  "066": {
+    "id": "066",
+    "title": "数据版本与注释：基因ID/panel/参考基因组",
+    "series": "S3",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "版本一致性、ID 转换、注释更新",
+    "status": "pending"
+  },
+  "067": {
+    "id": "067",
+    "title": "批量处理目录规范：raw/processed/results",
+    "series": "S3",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "目录结构、命名规范、版本管理",
+    "status": "pending"
+  },
+  "068": {
+    "id": "068",
+    "title": "可复现记录：参数/种子/版本/硬件信息",
+    "series": "S3",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "元数据模板、记录工具、追溯方法",
+    "status": "pending"
+  },
+  "069": {
+    "id": "069",
+    "title": "图像质量与配准：成像环节质量控制",
+    "series": "S3",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "图像检查、配准验证、错位诊断",
+    "status": "pending"
+  },
+  "070": {
+    "id": "070",
+    "title": "分割工具谱系：Cellpose/StarDist/Baysor 选择",
+    "series": "S3",
+    "tags": [
+      "Cellpose"
+    ],
+    "difficulty": "进阶",
+    "key_points": "工具对比、场景选择、参数调优",
+    "status": "pending"
+  },
+  "071": {
+    "id": "071",
+    "title": "分割质量评估：边界/重叠/遗漏检查",
+    "series": "S3",
+    "tags": [
+      "Cellpose"
+    ],
+    "difficulty": "进阶",
+    "key_points": "质量指标、可视化检查、修正策略",
+    "status": "pending"
+  },
+  "072": {
+    "id": "072",
+    "title": "SpatialData 框架：统一空间数据管理",
+    "series": "S3",
+    "tags": [
+      "SpatialData"
+    ],
+    "difficulty": "进阶",
+    "key_points": "框架概念、数据模型、使用场景",
+    "status": "pending"
+  },
+  "073": {
+    "id": "073",
+    "title": "数据格式转换：跨工具/跨平台兼容性",
+    "series": "S3",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "格式标准、转换工具、字段映射",
+    "status": "pending"
+  },
+  "074": {
+    "id": "074",
+    "title": "大规模数据处理：内存/IO/并行优化",
+    "series": "S3",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "高级",
+    "key_points": "优化策略、工具选择、性能评估",
+    "status": "pending"
+  },
+  "075": {
+    "id": "075",
+    "title": "数据工程最佳实践：从混乱到规范",
+    "series": "S3",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "规范清单、常见问题、改进路径",
+    "status": "pending"
+  },
+  "076": {
+    "id": "076",
+    "title": "S3 里程碑：数据工程能力检验",
+    "series": "S3",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "工程案例、规范自测、流程优化",
+    "status": "pending"
+  },
+  "005": {
+    "id": "005",
+    "title": "空间转录组质量控制实战",
+    "series": "S4",
+    "tags": [
+      "通用",
+      "QC"
+    ],
+    "difficulty": "进阶",
+    "key_points": "QC 流程、指标解读、过滤策略",
+    "status": "completed"
+  },
+  "077": {
+    "id": "077",
+    "title": "空间 QC 不是 scRNA QC：空间伪影有哪些",
+    "series": "S4",
+    "tags": [
+      "QC"
+    ],
+    "difficulty": "入门",
+    "key_points": "伪影类型、识别方法、空间特异性",
+    "status": "pending"
+  },
+  "078": {
+    "id": "078",
+    "title": "QC 指标空间化：nUMI/nGene/pct_mt 分布判读",
+    "series": "S4",
+    "tags": [
+      "QC"
+    ],
+    "difficulty": "进阶",
+    "key_points": "空间分布、阈值调整、异常诊断",
+    "status": "pending"
+  },
+  "079": {
+    "id": "079",
+    "title": "组织外 spot 与边缘效应：识别与处理",
+    "series": "S4",
+    "tags": [
+      "Visium",
+      "QC"
+    ],
+    "difficulty": "进阶",
+    "key_points": "自动识别、手动复核、mask 策略",
+    "status": "pending"
+  },
+  "080": {
+    "id": "080",
+    "title": "背景与 ambient RNA：什么时候需要去污",
+    "series": "S4",
+    "tags": [
+      "QC"
+    ],
+    "difficulty": "进阶",
+    "key_points": "背景来源、判断条件、去污方法",
+    "status": "pending"
+  },
+  "081": {
+    "id": "081",
+    "title": "空间数据噪声模型：掉落与稀疏的直觉",
+    "series": "S4",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "噪声来源、统计模型、零值解释",
+    "status": "pending"
+  },
+  "082": {
+    "id": "082",
+    "title": "去噪方法谱系：平滑/图模型/深度学习",
+    "series": "S4",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "高级",
+    "key_points": "方法分类、原理对比、风险评估",
+    "status": "pending"
+  },
+  "083": {
+    "id": "083",
+    "title": "空间平滑：邻域加权的生物学假设",
+    "series": "S4",
+    "tags": [
+      "Squidpy"
+    ],
+    "difficulty": "进阶",
+    "key_points": "平滑原理、参数选择、过平滑风险",
+    "status": "pending"
+  },
+  "084": {
+    "id": "084",
+    "title": "补值（imputation）：提升图像还是制造假象",
+    "series": "S4",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "高级",
+    "key_points": "补值原理、方法对比、验收标准",
+    "status": "pending"
+  },
+  "085": {
+    "id": "085",
+    "title": "去噪/补值验收标准：保持边界/marker/不过平滑",
+    "series": "S4",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "高级",
+    "key_points": "验收清单、负对照、前后对比",
+    "status": "pending"
+  },
+  "086": {
+    "id": "086",
+    "title": "Visium HD 的 QC 特殊性：bin 级别质量控制",
+    "series": "S4",
+    "tags": [
+      "VisiumHD",
+      "QC"
+    ],
+    "difficulty": "进阶",
+    "key_points": "HD 特有问题、bin-level QC、聚合策略",
+    "status": "pending"
+  },
+  "087": {
+    "id": "087",
+    "title": "成像型数据 QC：转录本点/分割/细胞质量",
+    "series": "S4",
+    "tags": [
+      "Xenium",
+      "CosMx",
+      "QC"
+    ],
+    "difficulty": "进阶",
+    "key_points": "点云质量、分割质量、细胞过滤",
+    "status": "pending"
+  },
+  "088": {
+    "id": "088",
+    "title": "批次效应检测：空间数据的批次识别",
+    "series": "S4",
+    "tags": [
+      "QC"
+    ],
+    "difficulty": "高级",
+    "key_points": "批次来源、检测方法、可视化",
+    "status": "pending"
+  },
+  "089": {
+    "id": "089",
+    "title": "批次效应校正：Harmony/Scanorama/MNN 在空间数据",
+    "series": "S4",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "高级",
+    "key_points": "校正方法、空间约束、效果评估",
+    "status": "pending"
+  },
+  "090": {
+    "id": "090",
+    "title": "QC 决策树：给定数据如何制定 QC 策略",
+    "series": "S4",
+    "tags": [
+      "QC"
+    ],
+    "difficulty": "进阶",
+    "key_points": "决策流程、参数选择、记录模板",
+    "status": "pending"
+  },
+  "091": {
+    "id": "091",
+    "title": "S4 里程碑：QC 全流程实战检验",
+    "series": "S4",
+    "tags": [
+      "QC"
+    ],
+    "difficulty": "进阶",
+    "key_points": "完整案例、决策记录、效果评估",
+    "status": "pending"
+  },
+  "006": {
+    "id": "006",
+    "title": "空间可变基因识别方法",
+    "series": "S5",
+    "tags": [
+      "通用",
+      "SVG"
+    ],
+    "difficulty": "进阶",
+    "key_points": "SVG 概念、识别方法、结果解读",
+    "status": "completed"
+  },
+  "092": {
+    "id": "092",
+    "title": "空间邻接图：kNN vs 半径图 vs Delaunay",
+    "series": "S5",
+    "tags": [
+      "Squidpy"
+    ],
+    "difficulty": "进阶",
+    "key_points": "三种邻接、可视化、差异解释",
+    "status": "pending"
+  },
+  "093": {
+    "id": "093",
+    "title": "空间自相关：Moran's I/Geary's C 直觉",
+    "series": "S5",
+    "tags": [
+      "Squidpy"
+    ],
+    "difficulty": "进阶",
+    "key_points": "自相关概念、计算方法、解读",
+    "status": "pending"
+  },
+  "094": {
+    "id": "094",
+    "title": "空间自相关地图：从全局到局部",
+    "series": "S5",
+    "tags": [
+      "Squidpy"
+    ],
+    "difficulty": "进阶",
+    "key_points": "全局/局部指标、热点识别、可视化",
+    "status": "pending"
+  },
+  "095": {
+    "id": "095",
+    "title": "邻域尺度选择：生物学意义与统计功效",
+    "series": "S5",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "高级",
+    "key_points": "尺度定义、敏感性分析、生物学解释",
+    "status": "pending"
+  },
+  "096": {
+    "id": "096",
+    "title": "SVG 是什么：为什么 DEG 不够用",
+    "series": "S5",
+    "tags": [
+      "SVG"
+    ],
+    "difficulty": "入门",
+    "key_points": "SVG vs DEG、空间模式、应用场景",
+    "status": "pending"
+  },
+  "097": {
+    "id": "097",
+    "title": "SVG 工具谱系：SpatialDE/SPARK/nnSVG/图方法",
+    "series": "S5",
+    "tags": [
+      "SVG"
+    ],
+    "difficulty": "进阶",
+    "key_points": "工具对比、原理差异、选择指南",
+    "status": "pending"
+  },
+  "098": {
+    "id": "098",
+    "title": "SpatialDE 实战：统计模型与参数选择",
+    "series": "S5",
+    "tags": [
+      "SVG"
+    ],
+    "difficulty": "进阶",
+    "key_points": "模型原理、参数调优、结果解读",
+    "status": "pending"
+  },
+  "099": {
+    "id": "099",
+    "title": "SPARK 实战：广义线性空间模型",
+    "series": "S5",
+    "tags": [
+      "SVG"
+    ],
+    "difficulty": "进阶",
+    "key_points": "模型原理、计算效率、适用场景",
+    "status": "pending"
+  },
+  "100": {
+    "id": "100",
+    "title": "SVG 一致性策略：多方法取交/取并/加权",
+    "series": "S5",
+    "tags": [
+      "SVG"
+    ],
+    "difficulty": "高级",
+    "key_points": "共识策略、稳定性检验、结果整合",
+    "status": "pending"
+  },
+  "101": {
+    "id": "101",
+    "title": "SVG 结果解释：空间模式分类与生物学意义",
+    "series": "S5",
+    "tags": [
+      "SVG"
+    ],
+    "difficulty": "进阶",
+    "key_points": "模式类型、聚类方法、功能解释",
+    "status": "pending"
+  },
+  "102": {
+    "id": "102",
+    "title": "空间域分割：图割/Markov 随机场/深度学习",
+    "series": "S5",
+    "tags": [
+      "Domain"
+    ],
+    "difficulty": "进阶",
+    "key_points": "方法分类、原理对比、适用条件",
+    "status": "pending"
+  },
+  "103": {
+    "id": "103",
+    "title": "Leiden/Louvain 聚类在空间数据：空间约束",
+    "series": "S5",
+    "tags": [
+      "Domain",
+      "Scanpy"
+    ],
+    "difficulty": "进阶",
+    "key_points": "聚类原理、空间权重、参数调优",
+    "status": "pending"
+  },
+  "104": {
+    "id": "104",
+    "title": "BayesSpace/BASS：贝叶斯空间域分割",
+    "series": "S5",
+    "tags": [
+      "Domain"
+    ],
+    "difficulty": "高级",
+    "key_points": "贝叶斯框架、先验设计、结果解读",
+    "status": "pending"
+  },
+  "105": {
+    "id": "105",
+    "title": "域分割参数敏感性：如何证明不是\"调参画图\"",
+    "series": "S5",
+    "tags": [
+      "Domain"
+    ],
+    "difficulty": "高级",
+    "key_points": "敏感性分析、稳健性检验、报告规范",
+    "status": "pending"
+  },
+  "106": {
+    "id": "106",
+    "title": "域标记基因：域的解释证据链",
+    "series": "S5",
+    "tags": [
+      "Domain"
+    ],
+    "difficulty": "进阶",
+    "key_points": "marker 识别、证据链、一致性检验",
+    "status": "pending"
+  },
+  "107": {
+    "id": "107",
+    "title": "域分割验收：组织学一致性/marker 一致性/稳定性",
+    "series": "S5",
+    "tags": [
+      "Domain"
+    ],
+    "difficulty": "高级",
+    "key_points": "验收清单、多重证据、负对照",
+    "status": "pending"
+  },
+  "108": {
+    "id": "108",
+    "title": "空间基因模块：共表达在空间里的意义",
+    "series": "S5",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "模块概念、空间共定位、生物学解释",
+    "status": "pending"
+  },
+  "109": {
+    "id": "109",
+    "title": "模块发现：网络/层级聚类/图学习",
+    "series": "S5",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "高级",
+    "key_points": "方法对比、参数选择、结果评估",
+    "status": "pending"
+  },
+  "110": {
+    "id": "110",
+    "title": "模块到功能：空间富集与组织结构映射",
+    "series": "S5",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "富集分析、空间映射、一致性说明",
+    "status": "pending"
+  },
+  "111": {
+    "id": "111",
+    "title": "S5 里程碑：域+SVG+模块全套分析实战",
+    "series": "S5",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "高级",
+    "key_points": "完整流程、图表规范、可复现包",
+    "status": "pending"
+  },
+  "112": {
+    "id": "112",
+    "title": "细胞组成问题定义：mapping vs deconvolution",
+    "series": "S6",
+    "tags": [
+      "Deconvolution"
+    ],
+    "difficulty": "入门",
+    "key_points": "问题分类、方法选择、适用场景",
+    "status": "pending"
+  },
+  "113": {
+    "id": "113",
+    "title": "参考 scRNA 怎么选：组织匹配/状态覆盖/批次一致性",
+    "series": "S6",
+    "tags": [
+      "Deconvolution"
+    ],
+    "difficulty": "进阶",
+    "key_points": "选择标准、质量评估、常见错误",
+    "status": "pending"
+  },
+  "114": {
+    "id": "114",
+    "title": "Cell2location 思路：贝叶斯分解直觉与输入要求",
+    "series": "S6",
+    "tags": [
+      "Cell2location"
+    ],
+    "difficulty": "进阶",
+    "key_points": "模型原理、输入准备、参数设置",
+    "status": "pending"
+  },
+  "115": {
+    "id": "115",
+    "title": "Cell2location 实战：从 scRNA 到空间细胞组成",
+    "series": "S6",
+    "tags": [
+      "Cell2location"
+    ],
+    "difficulty": "进阶",
+    "key_points": "完整流程、结果解读、可视化",
+    "status": "pending"
+  },
+  "116": {
+    "id": "116",
+    "title": "RCTD 思路：概率框架与 doublet 建模",
+    "series": "S6",
+    "tags": [
+      "RCTD"
+    ],
+    "difficulty": "进阶",
+    "key_points": "模型原理、doublet 处理、优缺点",
+    "status": "pending"
+  },
+  "117": {
+    "id": "117",
+    "title": "RCTD 实战：快速反卷积与结果验证",
+    "series": "S6",
+    "tags": [
+      "RCTD"
+    ],
+    "difficulty": "进阶",
+    "key_points": "流程实现、质量控制、结果对比",
+    "status": "pending"
+  },
+  "118": {
+    "id": "118",
+    "title": "Stereoscope/SPOTlight：其他反卷积方法",
+    "series": "S6",
+    "tags": [
+      "Deconvolution"
+    ],
+    "difficulty": "进阶",
+    "key_points": "方法对比、适用场景、性能评估",
+    "status": "pending"
+  },
+  "119": {
+    "id": "119",
+    "title": "无参考反卷积：LDA/因子模型什么时候可用",
+    "series": "S6",
+    "tags": [
+      "Deconvolution"
+    ],
+    "difficulty": "高级",
+    "key_points": "无参考方法、适用条件、局限性",
+    "status": "pending"
+  },
+  "120": {
+    "id": "120",
+    "title": "反卷积验收：marker 一致性/空间一致性/负对照",
+    "series": "S6",
+    "tags": [
+      "Deconvolution"
+    ],
+    "difficulty": "高级",
+    "key_points": "验收清单、质量指标、常见问题",
+    "status": "pending"
+  },
+  "121": {
+    "id": "121",
+    "title": "增强分辨率：把 spot \"拆细\"到底在做什么",
+    "series": "S6",
+    "tags": [
+      "Deconvolution"
+    ],
+    "difficulty": "高级",
+    "key_points": "方法原理、假设边界、解读风险",
+    "status": "pending"
+  },
+  "122": {
+    "id": "122",
+    "title": "Tangram 类方法：把单细胞映射回空间",
+    "series": "S6",
+    "tags": [
+      "Tangram"
+    ],
+    "difficulty": "高级",
+    "key_points": "映射原理、空间约束、验证方法",
+    "status": "pending"
+  },
+  "123": {
+    "id": "123",
+    "title": "无分割策略：无分割注释与像素因子法",
+    "series": "S6",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "高级",
+    "key_points": "方法概念、适用场景、结果解释",
+    "status": "pending"
+  },
+  "124": {
+    "id": "124",
+    "title": "反卷积方法对比：同一数据多方法评估",
+    "series": "S6",
+    "tags": [
+      "Deconvolution"
+    ],
+    "difficulty": "高级",
+    "key_points": "对比维度、一致性分析、选择建议",
+    "status": "pending"
+  },
+  "125": {
+    "id": "125",
+    "title": "反卷积常见陷阱：10 个容易犯的错误",
+    "series": "S6",
+    "tags": [
+      "Deconvolution"
+    ],
+    "difficulty": "进阶",
+    "key_points": "错误清单、诊断方法、避免策略",
+    "status": "pending"
+  },
+  "126": {
+    "id": "126",
+    "title": "S6 里程碑：细胞组成推断全流程实战",
+    "series": "S6",
+    "tags": [
+      "Deconvolution"
+    ],
+    "difficulty": "高级",
+    "key_points": "完整案例、多方法对比、验收报告",
+    "status": "pending"
+  },
+  "127": {
+    "id": "127",
+    "title": "CCC 不是 LR 表：空间约束才是核心",
+    "series": "S7",
+    "tags": [
+      "CCC"
+    ],
+    "difficulty": "入门",
+    "key_points": "CCC 概念、空间证据、方法分类",
+    "status": "pending"
+  },
+  "128": {
+    "id": "128",
+    "title": "邻域定义：接触/距离衰减/组织边界",
+    "series": "S7",
+    "tags": [
+      "CCC"
+    ],
+    "difficulty": "进阶",
+    "key_points": "邻域类型、尺度选择、生物学意义",
+    "status": "pending"
+  },
+  "129": {
+    "id": "129",
+    "title": "空间共定位与互斥：统计检验怎么做",
+    "series": "S7",
+    "tags": [
+      "CCC"
+    ],
+    "difficulty": "进阶",
+    "key_points": "检验方法、多重校正、显著性解读",
+    "status": "pending"
+  },
+  "130": {
+    "id": "130",
+    "title": "CellChat 在空间数据：LR 数据库与推断框架",
+    "series": "S7",
+    "tags": [
+      "CellChat"
+    ],
+    "difficulty": "进阶",
+    "key_points": "工具原理、空间适配、流程实现",
+    "status": "pending"
+  },
+  "131": {
+    "id": "131",
+    "title": "COMMOT：最优传输理论在 CCC",
+    "series": "S7",
+    "tags": [
+      "CCC"
+    ],
+    "difficulty": "高级",
+    "key_points": "最优传输、方法原理、适用场景",
+    "status": "pending"
+  },
+  "132": {
+    "id": "132",
+    "title": "Squidpy 的 CCC 模块：邻域互作分析",
+    "series": "S7",
+    "tags": [
+      "Squidpy",
+      "CCC"
+    ],
+    "difficulty": "进阶",
+    "key_points": "功能概览、实现方法、结果解读",
+    "status": "pending"
+  },
+  "133": {
+    "id": "133",
+    "title": "把反卷积结果接到 CCC：避免混合 spot 误判",
+    "series": "S7",
+    "tags": [
+      "CCC",
+      "Deconvolution"
+    ],
+    "difficulty": "高级",
+    "key_points": "整合策略、假阳性控制、流程设计",
+    "status": "pending"
+  },
+  "134": {
+    "id": "134",
+    "title": "CCC 典型输出：互作网络+空间证据图+负对照",
+    "series": "S7",
+    "tags": [
+      "CCC"
+    ],
+    "difficulty": "进阶",
+    "key_points": "图表规范、证据链、报告模板",
+    "status": "pending"
+  },
+  "135": {
+    "id": "135",
+    "title": "多样本 CCC 比较：以样本为单位的统计框架",
+    "series": "S7",
+    "tags": [
+      "CCC"
+    ],
+    "difficulty": "高级",
+    "key_points": "统计模型、样本间比较、伪重复避免",
+    "status": "pending"
+  },
+  "136": {
+    "id": "136",
+    "title": "CCC 验收标准：表达+空间+功能三重证据",
+    "series": "S7",
+    "tags": [
+      "CCC"
+    ],
+    "difficulty": "高级",
+    "key_points": "验收清单、证据链、可信度评估",
+    "status": "pending"
+  },
+  "137": {
+    "id": "137",
+    "title": "TME 案例：免疫抑制通路空间证据链",
+    "series": "S7",
+    "tags": [
+      "CCC",
+      "Tumor"
+    ],
+    "difficulty": "高级",
+    "key_points": "应用案例、证据构建、结果解读",
+    "status": "pending"
+  },
+  "138": {
+    "id": "138",
+    "title": "神经组织 CCC：突触与胶质细胞互作",
+    "series": "S7",
+    "tags": [
+      "CCC",
+      "Brain"
+    ],
+    "difficulty": "高级",
+    "key_points": "神经特异性、距离尺度、功能验证",
+    "status": "pending"
+  },
+  "139": {
+    "id": "139",
+    "title": "CCC 常见陷阱：过度推断与假阳性",
+    "series": "S7",
+    "tags": [
+      "CCC"
+    ],
+    "difficulty": "进阶",
+    "key_points": "陷阱清单、识别方法、避免策略",
+    "status": "pending"
+  },
+  "140": {
+    "id": "140",
+    "title": "CCC 方法对比：同一数据多工具评估",
+    "series": "S7",
+    "tags": [
+      "CCC"
+    ],
+    "difficulty": "高级",
+    "key_points": "工具对比、一致性分析、选择建议",
+    "status": "pending"
+  },
+  "141": {
+    "id": "141",
+    "title": "S7 里程碑：完成一个\"空间 CCC 故事\"",
+    "series": "S7",
+    "tags": [
+      "CCC"
+    ],
+    "difficulty": "高级",
+    "key_points": "完整案例、证据链、文章结构",
+    "status": "pending"
+  },
+  "142": {
+    "id": "142",
+    "title": "空间轨迹问题：时间不等于空间",
+    "series": "S8",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "入门",
+    "key_points": "概念区分、假设声明、风险边界",
+    "status": "pending"
+  },
+  "143": {
+    "id": "143",
+    "title": "伪时间在空间里：何时合理、何时危险",
+    "series": "S8",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "适用条件、反例分析、证据要求",
+    "status": "pending"
+  },
+  "144": {
+    "id": "144",
+    "title": "空间梯度与边界：轨迹与域如何结合",
+    "series": "S8",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "梯度检测、边界识别、域整合",
+    "status": "pending"
+  },
+  "145": {
+    "id": "145",
+    "title": "空间边界检测：梯度与边缘的统计识别",
+    "series": "S8",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "高级",
+    "key_points": "检测方法、统计检验、可视化",
+    "status": "pending"
+  },
+  "146": {
+    "id": "146",
+    "title": "肿瘤侵袭前沿：梯度/EMT/基质重塑",
+    "series": "S8",
+    "tags": [
+      "Tumor"
+    ],
+    "difficulty": "高级",
+    "key_points": "应用案例、梯度分析、功能解释",
+    "status": "pending"
+  },
+  "147": {
+    "id": "147",
+    "title": "发育分层：空间域与谱系关系",
+    "series": "S8",
+    "tags": [
+      "Development"
+    ],
+    "difficulty": "高级",
+    "key_points": "发育案例、域-谱系映射、边界合理性",
+    "status": "pending"
+  },
+  "148": {
+    "id": "148",
+    "title": "跨切片轨迹：多切片序列分析",
+    "series": "S8",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "高级",
+    "key_points": "切片对齐、轨迹连接、假设检验",
+    "status": "pending"
+  },
+  "149": {
+    "id": "149",
+    "title": "3D 重建初步：组织切片序列与体数据",
+    "series": "S8",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "专家",
+    "key_points": "3D 概念、重建流程、误差来源",
+    "status": "pending"
+  },
+  "150": {
+    "id": "150",
+    "title": "空间轨迹验收：证据链与负对照",
+    "series": "S8",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "高级",
+    "key_points": "验收清单、证据要求、报告规范",
+    "status": "pending"
+  },
+  "151": {
+    "id": "151",
+    "title": "S8 里程碑：空间梯度/侵袭前沿分析模板",
+    "series": "S8",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "高级",
+    "key_points": "完整流程、可复用模板、案例库",
+    "status": "pending"
+  },
+  "152": {
+    "id": "152",
+    "title": "空间多组学总览：联合测量 vs 配对整合",
+    "series": "S9",
+    "tags": [
+      "Multi-omics"
+    ],
+    "difficulty": "入门",
+    "key_points": "多组学分类、整合策略、应用场景",
+    "status": "pending"
+  },
+  "153": {
+    "id": "153",
+    "title": "空间蛋白（IF/IMC）+RNA：对齐与批次",
+    "series": "S9",
+    "tags": [
+      "Multi-omics"
+    ],
+    "difficulty": "进阶",
+    "key_points": "蛋白-RNA 整合、对齐方法、批次处理",
+    "status": "pending"
+  },
+  "154": {
+    "id": "154",
+    "title": "空间蛋白数据处理：从荧光到表达矩阵",
+    "series": "S9",
+    "tags": [
+      "Multi-omics"
+    ],
+    "difficulty": "进阶",
+    "key_points": "图像处理、定量方法、质量控制",
+    "status": "pending"
+  },
+  "155": {
+    "id": "155",
+    "title": "空间 ATAC 与调控：从峰到 motif 到调控网络",
+    "series": "S9",
+    "tags": [
+      "Multi-omics"
+    ],
+    "difficulty": "高级",
+    "key_points": "ATAC 整合、峰注释、调控推断",
+    "status": "pending"
+  },
+  "156": {
+    "id": "156",
+    "title": "空间 GRN：在空间里做调控推断的证据链",
+    "series": "S9",
+    "tags": [
+      "Multi-omics"
+    ],
+    "difficulty": "高级",
+    "key_points": "GRN 方法、空间约束、因果边界",
+    "status": "pending"
+  },
+  "157": {
+    "id": "157",
+    "title": "SCENIC+ 在空间数据：增强子-基因连接",
+    "series": "S9",
+    "tags": [
+      "Multi-omics"
+    ],
+    "difficulty": "高级",
+    "key_points": "SCENIC+ 原理、空间应用、结果解读",
+    "status": "pending"
+  },
+  "158": {
+    "id": "158",
+    "title": "空间代谢/脂质：信号稀疏与空间平滑陷阱",
+    "series": "S9",
+    "tags": [
+      "Multi-omics"
+    ],
+    "difficulty": "高级",
+    "key_points": "代谢数据特性、整合挑战、陷阱避免",
+    "status": "pending"
+  },
+  "159": {
+    "id": "159",
+    "title": "病理影像+空间表达：从相关到可解释",
+    "series": "S9",
+    "tags": [
+      "Multi-omics"
+    ],
+    "difficulty": "高级",
+    "key_points": "影像特征、整合方法、可解释性",
+    "status": "pending"
+  },
+  "160": {
+    "id": "160",
+    "title": "多模态联合嵌入：什么时候有意义",
+    "series": "S9",
+    "tags": [
+      "Multi-omics"
+    ],
+    "difficulty": "高级",
+    "key_points": "联合嵌入、适用条件、收益评估",
+    "status": "pending"
+  },
+  "161": {
+    "id": "161",
+    "title": "空间多组学可视化：整合图表规范",
+    "series": "S9",
+    "tags": [
+      "Multi-omics"
+    ],
+    "difficulty": "进阶",
+    "key_points": "可视化策略、图表类型、规范模板",
+    "status": "pending"
+  },
+  "162": {
+    "id": "162",
+    "title": "多组学数据对齐：空间配准与批次校正",
+    "series": "S9",
+    "tags": [
+      "Multi-omics"
+    ],
+    "difficulty": "高级",
+    "key_points": "配准方法、批次处理、质量评估",
+    "status": "pending"
+  },
+  "163": {
+    "id": "163",
+    "title": "多组学统计框架：联合建模 vs 分步分析",
+    "series": "S9",
+    "tags": [
+      "Multi-omics"
+    ],
+    "difficulty": "高级",
+    "key_points": "统计策略、模型选择、功效考虑",
+    "status": "pending"
+  },
+  "164": {
+    "id": "164",
+    "title": "多组学验收：一致性/互补性/负对照",
+    "series": "S9",
+    "tags": [
+      "Multi-omics"
+    ],
+    "difficulty": "高级",
+    "key_points": "验收清单、证据链、质量标准",
+    "status": "pending"
+  },
+  "165": {
+    "id": "165",
+    "title": "多组学常见陷阱：过度整合与数据泄漏",
+    "series": "S9",
+    "tags": [
+      "Multi-omics"
+    ],
+    "difficulty": "高级",
+    "key_points": "陷阱清单、识别方法、避免策略",
+    "status": "pending"
+  },
+  "166": {
+    "id": "166",
+    "title": "S9 里程碑：空间多组学整合最小案例",
+    "series": "S9",
+    "tags": [
+      "Multi-omics"
+    ],
+    "difficulty": "高级",
+    "key_points": "完整流程、demo 报告、可复现包",
+    "status": "pending"
+  },
+  "167": {
+    "id": "167",
+    "title": "把分析写成 pipeline：输入输出契约与目录规范",
+    "series": "S10",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "pipeline 设计、契约定义、目录结构",
+    "status": "pending"
+  },
+  "168": {
+    "id": "168",
+    "title": "参数化与配置管理：YAML/CLI/日志",
+    "series": "S10",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "配置方案、参数管理、日志记录",
+    "status": "pending"
+  },
+  "169": {
+    "id": "169",
+    "title": "可扩展性：大切片/高分辨率优化内存与速度",
+    "series": "S10",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "高级",
+    "key_points": "性能优化、内存管理、并行策略",
+    "status": "pending"
+  },
+  "170": {
+    "id": "170",
+    "title": "可复现环境：conda/uv/容器化策略",
+    "series": "S10",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "环境管理、容器化、迁移方案",
+    "status": "pending"
+  },
+  "171": {
+    "id": "171",
+    "title": "单元测试与数据测试：生信代码怎么测",
+    "series": "S10",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "高级",
+    "key_points": "测试策略、用例设计、持续集成",
+    "status": "pending"
+  },
+  "172": {
+    "id": "172",
+    "title": "图表规范：配色/标尺/导出标准",
+    "series": "S10",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "图表规范、配色方案、导出设置",
+    "status": "pending"
+  },
+  "173": {
+    "id": "173",
+    "title": "基准测试怎么做：数据集/指标/对照/统计",
+    "series": "S10",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "高级",
+    "key_points": "benchmark 设计、指标选择、统计方法",
+    "status": "pending"
+  },
+  "174": {
+    "id": "174",
+    "title": "标准化与元数据：为什么 ST 更需要标准",
+    "series": "S10",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "数据标准、元数据规范、字段定义",
+    "status": "pending"
+  },
+  "175": {
+    "id": "175",
+    "title": "工具库维护：如何维护自己的工具库",
+    "series": "S10",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "工具整理、版本管理、文档规范",
+    "status": "pending"
+  },
+  "176": {
+    "id": "176",
+    "title": "Workflow 管理：Snakemake/Nextflow 在空间数据",
+    "series": "S10",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "高级",
+    "key_points": "workflow 工具、流程设计、最佳实践",
+    "status": "pending"
+  },
+  "177": {
+    "id": "177",
+    "title": "云计算与分布式：大规模空间数据处理",
+    "series": "S10",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "高级",
+    "key_points": "云平台、分布式策略、成本优化",
+    "status": "pending"
+  },
+  "178": {
+    "id": "178",
+    "title": "代码质量：linting/formatting/文档",
+    "series": "S10",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "代码规范、工具配置、文档生成",
+    "status": "pending"
+  },
+  "179": {
+    "id": "179",
+    "title": "可交付分析报告：从 Jupyter 到 HTML",
+    "series": "S10",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "报告生成、模板设计、交付规范",
+    "status": "pending"
+  },
+  "180": {
+    "id": "180",
+    "title": "工程化最佳实践：从脚本到产品",
+    "series": "S10",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "高级",
+    "key_points": "工程化路径、质量标准、改进清单",
+    "status": "pending"
+  },
+  "181": {
+    "id": "181",
+    "title": "S10 里程碑：发布可复现 ST 分析模板仓库",
+    "series": "S10",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "高级",
+    "key_points": "仓库结构、文档完整性、可交付性",
+    "status": "pending"
+  },
+  "182": {
+    "id": "182",
+    "title": "肿瘤免疫排布：冷/热肿瘤空间证据链",
+    "series": "S11",
+    "tags": [
+      "Tumor"
+    ],
+    "difficulty": "高级",
+    "key_points": "免疫分型、空间特征、统计分析",
+    "status": "pending"
+  },
+  "183": {
+    "id": "183",
+    "title": "肿瘤侵袭前沿：梯度/EMT/基质重塑",
+    "series": "S11",
+    "tags": [
+      "Tumor"
+    ],
+    "difficulty": "高级",
+    "key_points": "侵袭特征、梯度分析、功能解释",
+    "status": "pending"
+  },
+  "184": {
+    "id": "184",
+    "title": "肿瘤异质性：克隆空间分布与演化",
+    "series": "S11",
+    "tags": [
+      "Tumor"
+    ],
+    "difficulty": "高级",
+    "key_points": "克隆识别、空间模式、演化推断",
+    "status": "pending"
+  },
+  "185": {
+    "id": "185",
+    "title": "神经退行：区域特异性损伤与细胞状态",
+    "series": "S11",
+    "tags": [
+      "Brain"
+    ],
+    "difficulty": "高级",
+    "key_points": "神经退行、区域差异、状态转换",
+    "status": "pending"
+  },
+  "186": {
+    "id": "186",
+    "title": "神经发育：分层/迁移/连接的空间证据",
+    "series": "S11",
+    "tags": [
+      "Brain"
+    ],
+    "difficulty": "高级",
+    "key_points": "发育过程、空间模式、功能验证",
+    "status": "pending"
+  },
+  "187": {
+    "id": "187",
+    "title": "发育分层：空间域与谱系关系",
+    "series": "S11",
+    "tags": [
+      "Development"
+    ],
+    "difficulty": "高级",
+    "key_points": "发育分层、域-谱系映射、边界分析",
+    "status": "pending"
+  },
+  "188": {
+    "id": "188",
+    "title": "器官发生：形态发生与细胞命运",
+    "series": "S11",
+    "tags": [
+      "Development"
+    ],
+    "difficulty": "高级",
+    "key_points": "器官发育、形态学、命运决定",
+    "status": "pending"
+  },
+  "189": {
+    "id": "189",
+    "title": "感染：病灶与免疫募集的空间动态",
+    "series": "S11",
+    "tags": [
+      "Immune"
+    ],
+    "difficulty": "高级",
+    "key_points": "感染模型、免疫反应、空间动态",
+    "status": "pending"
+  },
+  "190": {
+    "id": "190",
+    "title": "纤维化：空间域与通路活性分区",
+    "series": "S11",
+    "tags": [
+      "Immune"
+    ],
+    "difficulty": "高级",
+    "key_points": "纤维化分级、通路分析、空间映射",
+    "status": "pending"
+  },
+  "191": {
+    "id": "191",
+    "title": "药物反应：治疗前后空间重塑",
+    "series": "S11",
+    "tags": [
+      "Tumor"
+    ],
+    "difficulty": "高级",
+    "key_points": "治疗反应、空间变化、多样本统计",
+    "status": "pending"
+  },
+  "192": {
+    "id": "192",
+    "title": "临床转化：ROI 平台如何做队列研究",
+    "series": "S11",
+    "tags": [
+      "GeoMx"
+    ],
+    "difficulty": "高级",
+    "key_points": "队列设计、统计框架、临床意义",
+    "status": "pending"
+  },
+  "193": {
+    "id": "193",
+    "title": "生物标志物发现：从空间特征到临床指标",
+    "series": "S11",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "高级",
+    "key_points": "标志物识别、验证策略、临床价值",
+    "status": "pending"
+  },
+  "194": {
+    "id": "194",
+    "title": "跨物种/跨组织：方法迁移与失效模式",
+    "series": "S11",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "高级",
+    "key_points": "迁移策略、失效识别、适配方法",
+    "status": "pending"
+  },
+  "195": {
+    "id": "195",
+    "title": "应用案例库：10 个经典空间转录组研究",
+    "series": "S11",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "案例分析、方法学习、启发总结",
+    "status": "pending"
+  },
+  "196": {
+    "id": "196",
+    "title": "S11 里程碑：论文级全流程复现长文",
+    "series": "S11",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "专家",
+    "key_points": "完整分析、证据链、论文结构",
+    "status": "pending"
+  },
+  "197": {
+    "id": "197",
+    "title": "AI 在空间转录组：图神经网络/基础模型能解决什么",
+    "series": "S12",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "高级",
+    "key_points": "AI 应用、能力边界、不神化",
+    "status": "pending"
+  },
+  "198": {
+    "id": "198",
+    "title": "图神经网络（GNN）在空间数据：原理与应用",
+    "series": "S12",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "高级",
+    "key_points": "GNN 原理、空间应用、方法评估",
+    "status": "pending"
+  },
+  "199": {
+    "id": "199",
+    "title": "基础模型：预训练模型在空间转录组",
+    "series": "S12",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "高级",
+    "key_points": "基础模型、迁移学习、应用场景",
+    "status": "pending"
+  },
+  "200": {
+    "id": "200",
+    "title": "生成模型与仿真：为什么需要合成空间数据",
+    "series": "S12",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "高级",
+    "key_points": "生成模型、仿真用途、指标定义",
+    "status": "pending"
+  },
+  "201": {
+    "id": "201",
+    "title": "3D 空间组学：切片重建与体数据挑战",
+    "series": "S12",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "专家",
+    "key_points": "3D 技术、重建方法、误差来源",
+    "status": "pending"
+  },
+  "202": {
+    "id": "202",
+    "title": "时空组学：空间+时间的联合分析",
+    "series": "S12",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "专家",
+    "key_points": "时空数据、分析框架、挑战与机遇",
+    "status": "pending"
+  },
+  "203": {
+    "id": "203",
+    "title": "机制与预测：从相关到可验证假设",
+    "series": "S12",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "高级",
+    "key_points": "因果推断、假设验证、实验设计",
+    "status": "pending"
+  },
+  "204": {
+    "id": "204",
+    "title": "空间转录组数据库与资源：公开数据利用",
+    "series": "S12",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "数据库资源、数据获取、使用规范",
+    "status": "pending"
+  },
+  "205": {
+    "id": "205",
+    "title": "未来五年路线图：平台×算法×应用爆发点",
+    "series": "S12",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "进阶",
+    "key_points": "技术趋势、应用方向、战略判断",
+    "status": "pending"
+  },
+  "206": {
+    "id": "206",
+    "title": "S12 里程碑：前沿技术调研报告",
+    "series": "S12",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "高级",
+    "key_points": "技术调研、趋势分析、战略建议",
+    "status": "pending"
+  },
+  "207": {
+    "id": "207",
+    "title": "训练营毕业作品：全栈分析+工程化+应用故事",
+    "series": "S12",
+    "tags": [
+      "通用"
+    ],
+    "difficulty": "专家",
+    "key_points": "完整作品集、可复现包、合集索引",
+    "status": "pending"
+  }
+}

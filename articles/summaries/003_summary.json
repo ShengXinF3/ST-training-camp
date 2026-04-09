@@ -1,0 +1,8 @@
+{
+  "id": "003",
+  "title": "Scanpy 与 Squidpy 快速上手",
+  "series": "S0",
+  "key_points": "工具安装、基础操作、常用函数",
+  "preview": "# Scanpy 与 Squidpy 快速上手\n\n## 元信息\n- 文章ID: 003\n- 系列: S0 - 空间转录组入门\n- 标签: 通用, Scanpy, Squidpy\n- 难度: ⭐ 入门\n- 预计阅读时间: 15 分钟\n- 配套代码: [GitHub](https://github.com/BioF3/ST-Training)\n\n---\n\n## 第一部分：Why & What\n\n### 为什么需要这两个工具？\n\n在上一篇《空间转录组数据分析完整流程》中，我们建立了从数据加载到验收的 9 步框架。但框架只是地图，真正走路还需要工具。\n\n空间转录组 (Spatial Transcriptomics, ST) 数据分析面临三个核心挑战：\n\n1. **数据结构复杂**：既有基因表达矩阵（细胞 × 基因），又有空间坐标（x, y），还有组织图像\n2. **分析流程长**：从质控到可视化，涉及 20+ 个步骤，每步都有多个参数\n3. **工具碎片化**：降维用一个包，聚类用另一个包，空间分析又是第三个包\n\nScanpy 和 Squidpy 的组合解决了这些问题：\n\n- **Scanpy...",
+  "generated_at": "2026-04-08"
+}

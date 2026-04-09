@@ -1,0 +1,6 @@
+{
+  "id": "004",
+  "title": "",
+  "preview": "---\ntitle: \"10x Visium 数据读取与可视化\"\narticle_id: \"004\"\nseries: \"S2\"\ntags: [\"Visium\", \"Scanpy\", \"入门\"]\ndifficulty: \"入门\"\nkeywords: [\"Visium\", \"数据读取\", \"空间可视化\", \"Scanpy\", \"AnnData\"]\ncreated: \"2026-04-08\"\nupdated: \"2026-04-08\"\n---\n\n# 10x Visium 数据读取与可视化\n\n## 第一部分：Why & What\n\n### 为什么需要专门的数据读取流程？\n\n拿到一份 10x Visium 数据，你会发现它不是单个文件，而是一个包含多个子文件夹的目录结构。这些文件分散存储着基因表达矩阵、空间坐标、组织图像等信息。如果手动拼接这些数据，不仅繁琐，还容易出错。\n\n更重要的是，空间转录组 (Spatial Transcriptomics, ST) 数据的特殊性在于：它需要同时管理三类信息：\n- **表达矩阵**：每个 spot（Visium 平台的空间单元，直径 55 µm）检测到的基...",
+  "generated_at": "2026-04-08"
+}

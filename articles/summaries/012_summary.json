@@ -1,0 +1,8 @@
+{
+  "id": "012",
+  "title": "Visium HD 数据开箱：bin 级别数据结构",
+  "series": "S0",
+  "key_points": "bin vs cell、数据结构、读取方法",
+  "preview": "---\ntitle: \"Visium HD 数据开箱：bin 级别数据结构\"\narticle_id: \"012\"\nseries: \"S0\"\ntags: [\"VisiumHD\", \"进阶\"]\ndifficulty: \"进阶\"\nkeywords: [\"Visium HD\", \"bin\", \"数据结构\", \"空间转录组\"]\ncreated: \"2026-04-08\"\nupdated: \"2026-04-08\"\n---\n\n# Visium HD 数据开箱：bin 级别数据结构\n\n## 第一部分：Why & What - 为什么需要理解 bin？\n\n### 从 Visium 到 Visium HD：分辨率的跃迁\n\n如果你用过 Visium，你会习惯一个概念：spot。每个 spot 直径 55 µm，覆盖约 10 个细胞。这是 Visium 的基本空间单元。\n\n但 Visium HD 改变了游戏规则。它不再使用固定的 spot，而是引入了 **bin**（空间分箱单元）这个概念。bin 是一个正方形区域，边长可以是 2 µm、8 µm、16 µm 等。最小的 2 µm bin 接近亚细胞分辨率，...",
+  "generated_at": "2026-04-08"
+}

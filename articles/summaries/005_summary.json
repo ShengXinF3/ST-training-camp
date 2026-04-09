@@ -1,0 +1,6 @@
+{
+  "id": "005",
+  "title": "空间转录组质量控制实战",
+  "preview": "---\ntitle: \"空间转录组质量控制实战\"\nseries: \"S4\"\narticle_id: \"005\"\ntags: [\"通用\", \"QC\", \"进阶\"]\ncreated: \"2026-04-08\"\n---\n\n# 空间转录组质量控制实战\n\n## 为什么质量控制是空间转录组分析的第一道关卡？\n\n你刚拿到一份 Visium 数据，迫不及待地想看看肿瘤微环境 (Tumor Microenvironment, TME) 中的免疫浸润模式。但如果数据中混入了大量低质量 spot、线粒体污染严重、或者组织边缘的背景噪音没有清理，后续的空间域 (Spatial Domain) 识别和细胞通讯 (Cell-Cell Communication, CCC) 分析都会受到干扰。\n\n质量控制 (Quality Control, QC) 不是可选项，而是空间转录组 (Spatial Transcriptomics, ST) 分析的必经之路。它决定了：\n- **数据可信度**：低质量数据会产生假阳性的空间可变基因 (Spatially Variable Genes, SVG)\n- **计算效率**：过滤掉...",
+  "generated_at": "2026-04-08"
+}
